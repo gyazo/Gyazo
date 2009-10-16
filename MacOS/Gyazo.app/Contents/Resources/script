@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+
+require 'net/http'
+
+program = ARGV[0]
+idfile = File.dirname(program) + "/gyazo.app/Contents/Resources/id"
+
+id = ''
+if File.exist?(idfile) then
+  id = File.read(idfile).chomp
+else
+  id = Time.new.strftime("%Y%m%d%H%M%S")
+  File.open(idfile,"w").print(id+"\n")
+end
+
+tmpfile = "/tmp/image_upload#{$$}.png"
+imagefile = ARGV[1]
+
+if imagefile && File.exist?(imagefile) then
+  system "sips -s format png #{imagefile} --out #{tmpfile}"
+else
+  system "screencapture -i #{tmpfile}"
+end
+
+imagedata = File.read(tmpfile)
+File.delete(tmpfile)
+
+boundary = '----BOUNDARYBOUNDARY----'
+
+HOST = 'gyazo.com'
+CGI = '/upload.cgi'
+
+data = <<EOF
+--#{boundary}\r
+content-disposition: form-data; name="id"\r
+\r
+#{id}\r
+--#{boundary}\r
+content-disposition: form-data; name="imagedata"\r
+\r
+#{imagedata}\r
+--#{boundary}--\r
+EOF
+
+header ={
+  'Content-Length' => data.length.to_s,
+  'Content-type' => "multipart/form-data; boundary=#{boundary}"
+}
+
+Net::HTTP.start(HOST,80){|http|
+  res = http.post(CGI,data,header)
+  url = res.response.to_ary[1]
+  system "echo #{url} | pbcopy"
+  system "open #{url}"
+}

@@ -1,0 +1,4 @@
+CFBundleName = "Gyazo";
+CFBundleShortVersionString = "1.0";
+CFBundleGetInfoString = "Gyazo version 1.0 Copyright 2009 Toshiyuki Masui";
+NSHumanReadableCopyright = "Copyright 2009 Toshiyuki Masui.";

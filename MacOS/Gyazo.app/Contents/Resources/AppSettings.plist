@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Creator</key>
+	<string>Platypus-3.4</string>
+	<key>EncryptAndChecksum</key>
+	<false/>
+	<key>IsDroppable</key>
+	<true/>
+	<key>OutputType</key>
+	<string>None</string>
+	<key>RemainRunningAfterCompletion</key>
+	<false/>
+	<key>RequiresAdminPrivileges</key>
+	<false/>
+	<key>ScriptInterpreter</key>
+	<string>/usr/bin/ruby</string>
+</dict>
+</plist>
