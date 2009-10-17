@@ -2,7 +2,7 @@
 
 require 'net/http'
 
-program = ARGV[0]
+program = ARGV[0].to_s
 idfile = File.dirname(program) + "/gyazo.app/Contents/Resources/id"
 
 id = ''
@@ -10,7 +10,11 @@ if File.exist?(idfile) then
   id = File.read(idfile).chomp
 else
   id = Time.new.strftime("%Y%m%d%H%M%S")
-  File.open(idfile,"w").print(id+"\n")
+  begin
+    File.open(idfile,"w").print(id+"\n")
+  rescue
+    id = ""
+  end
 end
 
 tmpfile = "/tmp/image_upload#{$$}.png"
