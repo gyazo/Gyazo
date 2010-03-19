@@ -2,6 +2,8 @@
 
 require 'net/http'
 
+version = '0.4'
+
 program = ARGV[0].to_s
 idfile = File.dirname(program) + "/gyazo.app/Contents/Resources/id"
 
@@ -47,6 +49,10 @@ content-disposition: form-data; name="id"\r
 \r
 #{id}\r
 --#{boundary}\r
+content-disposition: form-data; name="version"\r
+\r
+#{version}\r
+--#{boundary}\r
 content-disposition: form-data; name="imagedata"\r
 \r
 #{imagedata}\r
@@ -61,6 +67,6 @@ header ={
 Net::HTTP.start(HOST,80){|http|
   res = http.post(CGI,data,header)
   url = res.response.to_ary[1]
-  system "echo #{url} | pbcopy"
+  system "echo -n #{url} | pbcopy"
   system "open #{url}"
 }
