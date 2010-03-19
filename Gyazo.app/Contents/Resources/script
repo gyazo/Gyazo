@@ -21,9 +21,16 @@ tmpfile = "/tmp/image_upload#{$$}.png"
 imagefile = ARGV[1]
 
 if imagefile && File.exist?(imagefile) then
-  system "sips -s format png #{imagefile} --out #{tmpfile}"
+  system "sips -s format png \"#{imagefile}\" --out \"#{tmpfile}\""
 else
-  system "screencapture -i #{tmpfile}"
+  system "screencapture -i \"#{tmpfile}\""
+  if File.exist?(tmpfile) then
+    system "sips -d profile --deleteColorManagementProperties \"#{tmpfile}\""  
+  end
+end
+
+if !File.exist?(tmpfile) then
+  exit
 end
 
 imagedata = File.read(tmpfile)
