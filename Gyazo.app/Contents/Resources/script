@@ -48,7 +48,7 @@ content-disposition: form-data; name="id"\r
 \r
 #{id}\r
 --#{boundary}\r
-content-disposition: form-data; name="imagedata"\r
+content-disposition: form-data; name="imagedata"; filename="gyazo.com"\r
 \r
 #{imagedata}\r
 --#{boundary}--\r
