@@ -2,23 +2,20 @@
 
 require 'net/http'
 
-version = '0.4'
-
+# get id
+user = IO.popen("whoami", "r+").gets.chomp
 program = ARGV[0].to_s
-idfile = File.dirname(program) + "/gyazo.app/Contents/Resources/id"
+idfile = "/Users/#{user}/Library/Gyazo/id"
+old_idfile = File.dirname(program) + "/gyazo.app/Contents/Resources/id"
 
 id = ''
 if File.exist?(idfile) then
   id = File.read(idfile).chomp
-else
-  id = Time.new.strftime("%Y%m%d%H%M%S")
-  begin
-    File.open(idfile,"w").print(id+"\n")
-  rescue
-    id = ""
-  end
+elsif File.exist?(old_idfile) then
+  id = File.read(old_idfile).chomp
 end
 
+# capture png file
 tmpfile = "/tmp/image_upload#{$$}.png"
 imagefile = ARGV[1]
 
@@ -38,6 +35,7 @@ end
 imagedata = File.read(tmpfile)
 File.delete(tmpfile)
 
+# upload
 boundary = '----BOUNDARYBOUNDARY----'
 
 HOST = 'gyazo.com'
@@ -69,4 +67,19 @@ Net::HTTP.start(HOST,80){|http|
   url = res.response.to_ary[1]
   system "echo -n #{url} | pbcopy"
   system "open #{url}"
+
+  # save id
+  newid = res.response['X-Gyazo-Id']
+  if newid and newid != "" then
+    if !File.exist?(File.dirname(idfile)) then
+      Dir.mkdir(File.dirname(idfile))
+    end
+    if File.exist?(idfile) then
+      File.rename(idfile, idfile+Time.new.strftime("_%Y%m%d%H%M%S.bak"))
+    end
+    File.open(idfile,"w").print(newid)
+    if File.exist?(old_idfile) then
+      File.delete(old_idfile)
+    end
+  end
 }
