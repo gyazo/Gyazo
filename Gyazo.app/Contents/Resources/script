@@ -40,16 +40,13 @@ boundary = '----BOUNDARYBOUNDARY----'
 
 HOST = 'gyazo.com'
 CGI = '/upload.cgi'
+UA   = 'Gyazo/1.0'
 
 data = <<EOF
 --#{boundary}\r
 content-disposition: form-data; name="id"\r
 \r
 #{id}\r
---#{boundary}\r
-content-disposition: form-data; name="version"\r
-\r
-#{version}\r
 --#{boundary}\r
 content-disposition: form-data; name="imagedata"\r
 \r
@@ -59,7 +56,8 @@ EOF
 
 header ={
   'Content-Length' => data.length.to_s,
-  'Content-type' => "multipart/form-data; boundary=#{boundary}"
+  'Content-type' => "multipart/form-data; boundary=#{boundary}",
+  'User-Agent' => UA
 }
 
 Net::HTTP.start(HOST,80){|http|
