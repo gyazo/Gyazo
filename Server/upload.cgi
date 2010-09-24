@@ -12,7 +12,7 @@ cgi = CGI.new("html3")
 
 id = cgi.params['id'][0].read
 imagedata = cgi.params['imagedata'][0].read
-hash = Digest::MD5.new(imagedata).to_s
+hash = Digest::MD5.hexdigest(imagedata)
 
 dbm = SDBM.open('db/id',0644)
 dbm[hash] = id
