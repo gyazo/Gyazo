@@ -2,47 +2,15 @@
 
 require 'net/http'
 
-# get id
-user = IO.popen("whoami", "r+").gets.chomp
-program = ARGV[0].to_s
-idfile = "/Users/#{user}/Library/Gyazo/id"
-old_idfile = File.dirname(program) + "/gyazo.app/Contents/Resources/id"
-
-id = ''
-if File.exist?(idfile) then
-  id = File.read(idfile).chomp
-elsif File.exist?(old_idfile) then
-  id = File.read(old_idfile).chomp
-end
-
-# capture png file
-tmpfile = "/tmp/image_upload#{$$}.png"
-imagefile = ARGV[1]
-
-if imagefile && File.exist?(imagefile) then
-  system "sips -s format png \"#{imagefile}\" --out \"#{tmpfile}\""
-else
-  system "screencapture -i \"#{tmpfile}\""
-  if File.exist?(tmpfile) then
-    system "sips -d profile --deleteColorManagementProperties \"#{tmpfile}\""  
-  end
-end
-
-if !File.exist?(tmpfile) then
-  exit
-end
-
-imagedata = File.read(tmpfile)
-File.delete(tmpfile)
-
-# upload
-boundary = '----BOUNDARYBOUNDARY----'
-
 HOST = 'gyazo.com'
-CGI = '/upload.cgi'
+CGI  = '/upload.cgi'
 UA   = 'Gyazo/1.0'
 
-data = <<EOF
+def upload(id, imagedata)
+	# upload
+	boundary = '----BOUNDARYBOUNDARY----'
+
+	data = <<EOF
 --#{boundary}\r
 content-disposition: form-data; name="id"\r
 \r
@@ -54,30 +22,74 @@ content-disposition: form-data; name="imagedata"; filename="gyazo.com"\r
 --#{boundary}--\r
 EOF
 
-header ={
-  'Content-Length' => data.length.to_s,
-  'Content-type' => "multipart/form-data; boundary=#{boundary}",
-  'User-Agent' => UA
-}
+	header ={
+		'Content-Length' => data.length.to_s,
+		'Content-type' => "multipart/form-data; boundary=#{boundary}",
+		'User-Agent' => UA
+	}
 
-Net::HTTP.start(HOST,80){|http|
-  res = http.post(CGI,data,header)
-  url = res.response.to_ary[1]
-  system "echo -n #{url} | pbcopy"
-  system "open #{url}"
+	Net::HTTP.start(HOST,80){|http|
+		res = http.post(CGI,data,header)
+		url = res.response.to_ary[1]
+		system "echo -n #{url} | pbcopy"
+		system "open #{url}"
 
-  # save id
-  newid = res.response['X-Gyazo-Id']
-  if newid and newid != "" then
-    if !File.exist?(File.dirname(idfile)) then
-      Dir.mkdir(File.dirname(idfile))
-    end
-    if File.exist?(idfile) then
-      File.rename(idfile, idfile+Time.new.strftime("_%Y%m%d%H%M%S.bak"))
-    end
-    File.open(idfile,"w").print(newid)
-    if File.exist?(old_idfile) then
-      File.delete(old_idfile)
-    end
+		# save id
+		newid = res.response['X-Gyazo-Id']
+		if newid and newid != "" then
+			if !File.exist?(File.dirname(idfile)) then
+				Dir.mkdir(File.dirname(idfile))
+			end
+			if File.exist?(idfile) then
+				File.rename(idfile, idfile+Time.new.strftime("_%Y%m%d%H%M%S.bak"))
+			end
+			File.open(idfile,"w").print(newid)
+			if File.exist?(old_idfile) then
+				File.delete(old_idfile)
+			end
+		end
+	}
+end
+
+# get id
+user = IO.popen("whoami", "r+").gets.chomp
+program = ARGV.shift.to_s
+idfile = "/Users/#{user}/Library/Gyazo/id"
+old_idfile = File.dirname(program) + "/gyazo.app/Contents/Resources/id"
+
+id = ''
+if File.exist?(idfile) then
+  id = File.read(idfile).chomp
+elsif File.exist?(old_idfile) then
+  id = File.read(old_idfile).chomp
+end
+
+# capture png file
+
+if (ARGV.length == 0) then
+	tmpfile = "/tmp/image_upload#{$$}.png"
+  system "screencapture -i \"#{tmpfile}\""
+  if File.exist?(tmpfile) then
+    system "sips -d profile --deleteColorManagementProperties \"#{tmpfile}\""  
   end
-}
+	imagefiles = [tmpfile]
+else
+	imagefiles = []
+	ARGV.each_index do |i|
+		imagefile = ARGV[i]
+		tmpfile = "/tmp/image_upload#{$$}-#{i}.png"
+		if File.exist?(imagefile) then
+			system "sips -s format png \"#{imagefile}\" --out \"#{tmpfile}\""
+		end
+		if File.exist?(tmpfile) then
+			imagefiles.push(tmpfile)
+		end
+	end
+end
+
+imagefiles.each do |filename|
+	imagedata = File.read(filename)
+	upload(id, imagedata)
+	File.delete(filename)
+end
+
