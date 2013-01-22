@@ -1,0 +1,298 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10F3CA291499F92900F62513 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F3CA281499F92900F62513 /* Cocoa.framework */; };
+		10F3CA331499F92900F62513 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10F3CA311499F92900F62513 /* InfoPlist.strings */; };
+		10F3CA351499F92900F62513 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F3CA341499F92900F62513 /* main.m */; };
+		10F3CA3C1499F92900F62513 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F3CA3B1499F92900F62513 /* AppDelegate.m */; };
+		10F3CA3F1499F92A00F62513 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F3CA3D1499F92A00F62513 /* MainMenu.xib */; };
+		10F3CA461499FC3D00F62513 /* appIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 10F3CA451499FC3D00F62513 /* appIcon.icns */; };
+		10F3CA481499FC4400F62513 /* script in Resources */ = {isa = PBXBuildFile; fileRef = 10F3CA471499FC4400F62513 /* script */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		10F3CA241499F92900F62513 /* Gyazo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gyazo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10F3CA281499F92900F62513 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		10F3CA2B1499F92900F62513 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		10F3CA2C1499F92900F62513 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		10F3CA2D1499F92900F62513 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		10F3CA301499F92900F62513 /* Gyazo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Gyazo-Info.plist"; sourceTree = "<group>"; };
+		10F3CA321499F92900F62513 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		10F3CA341499F92900F62513 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		10F3CA361499F92900F62513 /* Gyazo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gyazo-Prefix.pch"; sourceTree = "<group>"; };
+		10F3CA3A1499F92900F62513 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		10F3CA3B1499F92900F62513 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		10F3CA3E1499F92A00F62513 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		10F3CA451499FC3D00F62513 /* appIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appIcon.icns; sourceTree = "<group>"; };
+		10F3CA471499FC4400F62513 /* script */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = script; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		10F3CA211499F92900F62513 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10F3CA291499F92900F62513 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10F3CA191499F92900F62513 = {
+			isa = PBXGroup;
+			children = (
+				10F3CA2E1499F92900F62513 /* Gyazo */,
+				10F3CA271499F92900F62513 /* Frameworks */,
+				10F3CA251499F92900F62513 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		10F3CA251499F92900F62513 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10F3CA241499F92900F62513 /* Gyazo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10F3CA271499F92900F62513 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10F3CA281499F92900F62513 /* Cocoa.framework */,
+				10F3CA2A1499F92900F62513 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		10F3CA2A1499F92900F62513 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10F3CA2B1499F92900F62513 /* AppKit.framework */,
+				10F3CA2C1499F92900F62513 /* CoreData.framework */,
+				10F3CA2D1499F92900F62513 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		10F3CA2E1499F92900F62513 /* Gyazo */ = {
+			isa = PBXGroup;
+			children = (
+				10F3CA3A1499F92900F62513 /* AppDelegate.h */,
+				10F3CA3B1499F92900F62513 /* AppDelegate.m */,
+				10F3CA3D1499F92A00F62513 /* MainMenu.xib */,
+				10F3CA2F1499F92900F62513 /* Supporting Files */,
+			);
+			path = Gyazo;
+			sourceTree = "<group>";
+		};
+		10F3CA2F1499F92900F62513 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				10F3CA471499FC4400F62513 /* script */,
+				10F3CA451499FC3D00F62513 /* appIcon.icns */,
+				10F3CA301499F92900F62513 /* Gyazo-Info.plist */,
+				10F3CA311499F92900F62513 /* InfoPlist.strings */,
+				10F3CA341499F92900F62513 /* main.m */,
+				10F3CA361499F92900F62513 /* Gyazo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		10F3CA231499F92900F62513 /* Gyazo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10F3CA421499F92A00F62513 /* Build configuration list for PBXNativeTarget "Gyazo" */;
+			buildPhases = (
+				10F3CA201499F92900F62513 /* Sources */,
+				10F3CA211499F92900F62513 /* Frameworks */,
+				10F3CA221499F92900F62513 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gyazo;
+			productName = Gyazo;
+			productReference = 10F3CA241499F92900F62513 /* Gyazo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		10F3CA1B1499F92900F62513 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 10F3CA1E1499F92900F62513 /* Build configuration list for PBXProject "Gyazo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 10F3CA191499F92900F62513;
+			productRefGroup = 10F3CA251499F92900F62513 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				10F3CA231499F92900F62513 /* Gyazo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		10F3CA221499F92900F62513 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10F3CA331499F92900F62513 /* InfoPlist.strings in Resources */,
+				10F3CA3F1499F92A00F62513 /* MainMenu.xib in Resources */,
+				10F3CA461499FC3D00F62513 /* appIcon.icns in Resources */,
+				10F3CA481499FC4400F62513 /* script in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		10F3CA201499F92900F62513 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10F3CA351499F92900F62513 /* main.m in Sources */,
+				10F3CA3C1499F92900F62513 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		10F3CA311499F92900F62513 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10F3CA321499F92900F62513 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		10F3CA3D1499F92A00F62513 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10F3CA3E1499F92A00F62513 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		10F3CA401499F92A00F62513 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		10F3CA411499F92A00F62513 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		10F3CA431499F92A00F62513 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Gyazo/Gyazo-Prefix.pch";
+				INFOPLIST_FILE = "Gyazo/Gyazo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		10F3CA441499F92A00F62513 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Gyazo/Gyazo-Prefix.pch";
+				INFOPLIST_FILE = "Gyazo/Gyazo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10F3CA1E1499F92900F62513 /* Build configuration list for PBXProject "Gyazo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10F3CA401499F92A00F62513 /* Debug */,
+				10F3CA411499F92A00F62513 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10F3CA421499F92A00F62513 /* Build configuration list for PBXNativeTarget "Gyazo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10F3CA431499F92A00F62513 /* Debug */,
+				10F3CA441499F92A00F62513 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 10F3CA1B1499F92900F62513 /* Project object */;
+}

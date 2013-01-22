@@ -1,3 +1,7 @@
 .DS_Store
 id
 Setup/
+*.pbxuser
+*.mode1v3
+xcuserdata
+project.xcworkspace
