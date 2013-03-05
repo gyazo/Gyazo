@@ -49,7 +49,7 @@ boundary = '----BOUNDARYBOUNDARY----'
 
 HOST = 'gyazo.com'
 CGI = '/upload.cgi'
-UA   = 'Gyazo/1.0.1'
+UA   = 'Gyazo/1.0.2'
 
 data = <<EOF
 --#{boundary}\r
