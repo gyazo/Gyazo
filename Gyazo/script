@@ -47,7 +47,7 @@ File.delete(tmpfile)
 # upload
 boundary = '----BOUNDARYBOUNDARY----'
 
-HOST = 'gyazo.com'
+HOST = 'upload.gyazo.com'
 CGI = '/upload.cgi'
 UA   = 'Gyazo/2.0'
 
