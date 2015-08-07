@@ -2,8 +2,7 @@
 
 The simplest and fastest screenshot uploading tool.
 
-Gyazo is first invented by Toshiyuki Masui.
-
+Gyazo is first invented by [Toshiyuki Masui](https://github.com/masui).
 
 For more details, see
 https://gyazo.com/
@@ -12,7 +11,7 @@ We may use your name or logo on our web site as
 a contributor or a user.
 
 Special Thanks:
-Icon Designed by Takeru Yoshihara
+Icon Designed by [Takeru Yoshihara](https://github.com/yoshiharatakeru)
 
 There are several versions of Gyazo:
 
